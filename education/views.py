@@ -132,7 +132,7 @@ class SubmitAnswersView(APIView):
                     {
                         "error": f"Вопрос с номером {q_num} не найден в тесте '{test.title}'."
                     },
-                    status=404,
+                    status=400,
                 )
 
             try:
@@ -140,7 +140,7 @@ class SubmitAnswersView(APIView):
             except Answer.DoesNotExist:
                 return Response(
                     {"error": f"У вопроса {q_num} нет ответа с номером {a_num}."},
-                    status=404,
+                    status=400,
                 )
 
             UserAnswer.objects.update_or_create(
