@@ -34,7 +34,7 @@ urlpatterns = [
     path(
         "section/delete/<int:pk>/",
         SectionDestroyAPIView.as_view(),
-        name="lesson_delete",
+        name="section_delete",
     ),
     path("lesson/create/", LessonCreateAPIView.as_view(), name="lesson_create"),
     path("lessons/", LessonListAPIView.as_view(), name="lesson_list"),
