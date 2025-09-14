@@ -86,7 +86,7 @@ class Question(models.Model):
         ordering = ["number"]
 
     def __str__(self):
-        return f"Вопрос {self.number}: {self.text}"
+        return f"Вопрос {self.number}: {self.question}"
 
 
 class Answer(models.Model):
@@ -102,7 +102,7 @@ class Answer(models.Model):
         ordering = ["number"]
 
     def __str__(self):
-        return f"Ответ {self.number} к вопросу {self.question.number}: {self.text}"
+        return f"Ответ {self.number} к вопросу {self.question.number}: {self.answer}"
 
 
 class UserAnswer(models.Model):
