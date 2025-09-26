@@ -229,6 +229,7 @@ class TestTest(APITestCase):
         self.assertTrue(Lesson.objects.all().exists())
 
     def test_list_test(self):
+        """ Тестирование получение списка тестов """
         create_data = {
             "title": "Тест по истории Древнего Рима",
             "description": "Проверка знаний по истории Древнего Рима",

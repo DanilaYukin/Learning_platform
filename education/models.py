@@ -5,6 +5,7 @@ from users.models import User
 
 
 class Section(models.Model):
+    """ Модель раздела """
     title = models.CharField(max_length=50, verbose_name="Название")
     description = models.TextField(verbose_name="Описание")
     owner = models.ForeignKey(
@@ -25,6 +26,7 @@ class Section(models.Model):
 
 
 class Lesson(models.Model):
+    """ Модель Урока """
     title = models.CharField(max_length=100, verbose_name="Название")
     description = models.TextField(verbose_name="Описание")
     material = models.FileField(
@@ -59,6 +61,7 @@ class Lesson(models.Model):
 
 
 class Test(models.Model):
+    """ Модель теста """
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     lesson = models.ForeignKey(
@@ -77,6 +80,7 @@ class Test(models.Model):
 
 
 class Question(models.Model):
+    """ Модель вопроса """
     test = models.ForeignKey(Test, on_delete=models.CASCADE, related_name="questions")
     question = models.TextField()
     number = models.PositiveIntegerField(verbose_name="Номер вопроса")
@@ -90,6 +94,7 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
+    """ Модель ответа """
     question = models.ForeignKey(
         Question, on_delete=models.CASCADE, related_name="answers"
     )
@@ -106,6 +111,7 @@ class Answer(models.Model):
 
 
 class UserAnswer(models.Model):
+    """ Модель ответа от пользователя """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     answer = models.ForeignKey(Answer, on_delete=models.CASCADE)
